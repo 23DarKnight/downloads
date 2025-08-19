@@ -60,12 +60,15 @@ def update_teams(data):
 
 
 while True:
-    msg = ser.readline().decode()
-    if msg != "":
-        print(msg)
-        if ";" in msg and msg.startswith("b:"):
-            msg = msg.split(";")[0]
-            data = msg.split(":")
-            print(data)
-            update_teams(data)
+    try:
+        msg = ser.readline().decode()
+        if msg != "":
+            print(msg)
+            if ";" in msg and msg.startswith("b:"):
+                msg = msg.split(";")[0]
+                data = msg.split(":")
+                print(data)
+                update_teams(data)
+    except Exception as e:
+        print(e)
             
