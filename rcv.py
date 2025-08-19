@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import serial
 import mysql.connector
 import configparser
