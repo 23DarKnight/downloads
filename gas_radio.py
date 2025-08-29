@@ -47,11 +47,10 @@ start = time.time()
 msg = ""
 while True:
     rcv = gps.readline().decode()
-    if msg != "":
-        if rcv != "":
-            msg = get_loc(rcv)
-        if time.time() - start > 2.5:
-            send_radio(msg)
+    if rcv != "":
+        msg = get_loc(rcv)
+    if time.time() - start > 2.5:
+        send_radio(msg)
     time.sleep(0.01)
 
 
